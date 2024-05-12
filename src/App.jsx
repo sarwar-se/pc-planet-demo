@@ -6,7 +6,6 @@ import "./css/pattern.css";
 import "./css/layout.css";
 
 function App() {
-  console.log("H");
   return (
     <div className="">
       <Header />

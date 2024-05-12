@@ -10,6 +10,7 @@ import { Loader } from "../pattern/Loader";
 import add_icon_white from "/src/assets/icons/add_icon_white.svg";
 
 const ProductList = ({ products, loadProducts, isLoading }) => {
+  const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showToaster, setShowToaster] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -93,6 +94,9 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
       ),
     },
   ];
+  const addModalShow = () => {
+    setShowAddModal(true);
+  };
 
   const editModalShow = (rowData) => {
     setProduct({ ...rowData });
@@ -102,6 +106,10 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
   const deleteModalShow = (rowData) => {
     setProduct({ ...rowData });
     setShowDeleteModal(true);
+  };
+
+  const addModalClose = () => {
+    setShowAddModal(false);
   };
 
   const updateModalClose = () => {
@@ -116,12 +124,13 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     addProduct(product).then((response) => {
       if (response) {
         loadProducts();
+        addModalClose();
         setShowToaster(true);
       }
     });
   };
 
-  const editProduct = (product) => {
+  const handleEditProduct = (product) => {
     updateProduct(product)
       .then((response) => {
         if (response) {
@@ -154,7 +163,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
               <AppButton
                 rowData={product}
                 btnClass="bg-success"
-                handleClick={handleAddProduct}
+                handleClick={addModalShow}
               >
                 <img className="add-icon-size" src={add_icon_white} /> Add
                 Product
@@ -167,7 +176,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
 
       <AppModal
         show={showUpdateModal}
-        handleAccept={editProduct}
+        handleAccept={handleEditProduct}
         handleCancel={updateModalClose}
         showTitle={false}
         showHeader={true}
@@ -183,7 +192,29 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
         <ProductForm
           formData={product}
           setFormData={setProduct}
-          handleSubmit={editProduct}
+          handleSubmit={handleEditProduct}
+        />
+      </AppModal>
+
+      <AppModal
+        show={showAddModal}
+        handleAccept={handleAddProduct}
+        handleCancel={addModalClose}
+        showTitle={false}
+        showHeader={true}
+        showFooter={true}
+        headerTitle={"Add Product"}
+        acceptText={"Submit"}
+        cancelText={"Cancel"}
+        animation={true}
+        backdrop={"static"}
+        centered={true}
+        size={"xl"}
+      >
+        <ProductForm
+          formData={product}
+          setFormData={setProduct}
+          handleSubmit={handleAddProduct}
         />
       </AppModal>
 
