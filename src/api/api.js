@@ -17,3 +17,7 @@ export const updateProduct = () => {
 export const deleteProduct = () => {
   return callApi("delete");
 };
+
+export const addProduct = () => {
+  return callApi("post");
+};

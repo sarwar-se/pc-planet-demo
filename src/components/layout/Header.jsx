@@ -1,6 +1,14 @@
 // import React from "react";
 
-import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  Image,
+  Nav,
+  Navbar,
+} from "react-bootstrap";
 
 import search_icon from "../../assets/icons/search_icon.svg";
 
@@ -12,9 +20,15 @@ const Header = () => {
       data-bs-theme="dark"
       expand="lg"
     >
-      <Container>
-        <Nav>
+      <Container className="d-flex flex-lg-row flex-md-row flex-sm-column gap-2">
+        <Nav className="d-flex gap-2">
+          <Image
+            className="logo-size"
+            src="/src/assets/icons/pc-planet-logo.png"
+          />
           <Navbar.Brand href="#">PC Planet</Navbar.Brand>
+        </Nav>
+        <Col>
           <Form className="d-flex search-form bg-light">
             <Form.Control
               className="bg-light search-field"
@@ -29,9 +43,9 @@ const Header = () => {
               <img className="search-icon" src={search_icon} />
             </Button>
           </Form>
-        </Nav>
+        </Col>
 
-        <Nav className="custom-nav">
+        <Nav className="d-flex flex-row">
           <Nav.Link className="custom-nav-link" href="#">
             Offer
           </Nav.Link>

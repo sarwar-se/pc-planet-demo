@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
 // import rog_strix from "../../assets/images/rog_strix.jpg";
-import empty_image from "../../assets/images/empty.jpg";
+// import empty_image from "../../assets/images/empty.jpg";
 import cart_icon from "../../assets/icons/cart_icon.png";
 import { Loader } from "../pattern/Loader";
 
@@ -12,7 +12,7 @@ const ProductCard = ({ products, isLoading }) => {
         {products.map((product, i) => (
           <div className="col " key={i}>
             <Card className="product-card">
-              <Card.Img variant="top" src={empty_image} />
+              <Card.Img variant="top" src={product.imgPath} />
               <Card.Body>
                 <Card.Title
                   style={{ fontSize: 15, marginTop: 0, fontWeight: "bold" }}

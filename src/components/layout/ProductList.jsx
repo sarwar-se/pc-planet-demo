@@ -3,10 +3,11 @@ import AppButton from "../pattern/AppButton";
 import TableView from "../pattern/TableView";
 import AppModal from "../pattern/AppModal";
 import ProductForm from "../../pages/ProductForm";
-import { updateProduct, deleteProduct } from "../../api/api";
+import { updateProduct, deleteProduct, addProduct } from "../../api/api";
 import AppToast from "../pattern/AppToast";
 import { colorVarient, toastPosition } from "../../constants/appConstant";
 import { Loader } from "../pattern/Loader";
+import add_icon_white from "/src/assets/icons/add_icon_white.svg";
 
 const ProductList = ({ products, loadProducts, isLoading }) => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -35,7 +36,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
       render: (rowData) => <>{rowData["id"]}</>,
     },
     {
-      headerTitle: "Title",
+      headerTitle: "Product Name",
       fieldName: "title",
       render: (rowData) => <>{rowData["title"]}</>,
     },
@@ -60,21 +61,30 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
       render: (rowData) => <>{rowData["status"]}</>,
     },
     {
+      headerTitle: "Image",
+      fieldName: "imgPath",
+      render: (rowData) => (
+        <>
+          <img style={{ width: 50, height: 50 }} src={rowData["imgPath"]} />
+        </>
+      ),
+    },
+    {
       headerTitle: "Actions",
       render: (rowData) => (
         <>
-          <div className="d-flex flex-row gap-1">
+          <div className="d-flex flex-row gap-2">
             <AppButton
               rowData={rowData}
               btnClass="bg-primary"
-              handleClick={editModalShow}
+              handleClick={() => editModalShow(rowData)}
             >
               Edit
             </AppButton>
             <AppButton
               rowData={rowData}
               btnClass="bg-danger"
-              handleClick={deleteModalShow}
+              handleClick={() => deleteModalShow(rowData)}
             >
               Delete
             </AppButton>
@@ -84,13 +94,13 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     },
   ];
 
-  const editModalShow = ({ rowData }) => {
-    setProduct(rowData);
+  const editModalShow = (rowData) => {
+    setProduct({ ...rowData });
     setShowUpdateModal(true);
   };
 
-  const deleteModalShow = ({ rowData }) => {
-    setProduct(rowData);
+  const deleteModalShow = (rowData) => {
+    setProduct({ ...rowData });
     setShowDeleteModal(true);
   };
 
@@ -100,6 +110,15 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
 
   const deleteModalClose = () => {
     setShowDeleteModal(false);
+  };
+
+  const handleAddProduct = (product) => {
+    addProduct(product).then((response) => {
+      if (response) {
+        loadProducts();
+        setShowToaster(true);
+      }
+    });
   };
 
   const editProduct = (product) => {
@@ -130,7 +149,19 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
         {isLoading ? (
           <Loader />
         ) : (
-          <TableView tableMetaData={getTableMetaData()} data={products} />
+          <>
+            <div className="text-end p-2">
+              <AppButton
+                rowData={product}
+                btnClass="bg-success"
+                handleClick={handleAddProduct}
+              >
+                <img className="add-icon-size" src={add_icon_white} /> Add
+                Product
+              </AppButton>
+            </div>
+            <TableView tableMetaData={getTableMetaData()} data={products} />
+          </>
         )}
       </div>
 
@@ -146,6 +177,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
         cancelText={"Cancel"}
         animation={true}
         backdrop={"static"}
+        centered={true}
         size={"xl"}
       >
         <ProductForm
@@ -167,6 +199,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
         acceptBtnColor={colorVarient.DANGER}
         animation={true}
         backdrop={"static"}
+        centered={true}
       >
         <div>
           <p>
