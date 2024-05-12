@@ -22,10 +22,7 @@ const Header = () => {
     >
       <Container className="d-flex flex-lg-row flex-md-row flex-sm-column gap-2">
         <Nav className="d-flex gap-2">
-          <Image
-            className="logo-size"
-            src="/src/assets/icons/pc-planet-logo.png"
-          />
+          <Image className="logo-size" src="/logo/pc-planet-logo.png" />
           <Navbar.Brand href="#">PC Planet</Navbar.Brand>
         </Nav>
         <Col>

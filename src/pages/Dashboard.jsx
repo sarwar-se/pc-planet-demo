@@ -11,6 +11,25 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [view, setView] = useState(productView.card);
 
+  const availability = ["In Stock", "Up Comming"];
+  const brand = [
+    "ASUS",
+    "MSI",
+    "SONY",
+    "INTEL",
+    "CANON",
+    "APOLLO",
+    "POWER GUARD",
+  ];
+  const category = [
+    "Graphics Card",
+    "Motherboard",
+    "Processor",
+    "Ups",
+    "Camera",
+    "Monitor",
+  ];
+
   const fetchProducts = () => {
     setIsLoading(true);
     getProducts()
@@ -30,13 +49,13 @@ const Dashboard = () => {
     <div className="container mt-3 d-flex flex-row gap-2">
       <div className="col-2 d-flex flex-column gap-2">
         <div>
-          <LeftCard title={"Availability"} />
+          <LeftCard title={"Availability"} values={availability} />
         </div>
         <div>
-          <LeftCard title={"Brand"} />
+          <LeftCard title={"Brand"} values={brand} />
         </div>
         <div>
-          <LeftCard title={"Category"} />
+          <LeftCard title={"Category"} values={category} />
         </div>
       </div>
       <div className="col-10">
@@ -49,7 +68,7 @@ const Dashboard = () => {
               products={products}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
-              loadProducts = {fetchProducts}
+              loadProducts={fetchProducts}
             />
           </div>
         )}

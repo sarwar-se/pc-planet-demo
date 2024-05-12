@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
 
-const LeftCard = ({ title = "UNKNOWN" }) => {
+const LeftCard = ({ title = "UNKNOWN", values }) => {
   const type = "checkbox";
   return (
     <div className="left-card">
@@ -10,9 +10,10 @@ const LeftCard = ({ title = "UNKNOWN" }) => {
 
       <div className="left-card-body">
         <Form>
-          <Form.Check label="One" type={type} name="check" id={"one"} />
-          <Form.Check label="two" type={type} name="check" id={"two"} />
-          <Form.Check label="three" type={type} name="check" id={"three"} />
+          {values &&
+            values.map((item, i) => (
+              <Form.Check key={i} label={item} type={type} name="check" />
+            ))}
         </Form>
       </div>
     </div>

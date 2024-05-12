@@ -121,13 +121,17 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
   };
 
   const handleAddProduct = (product) => {
-    addProduct(product).then((response) => {
-      if (response) {
-        loadProducts();
-        addModalClose();
-        setShowToaster(true);
-      }
-    });
+    addProduct(product)
+      .then((response) => {
+        if (response) {
+          loadProducts();
+          addModalClose();
+          setShowToaster(true);
+        }
+      })
+      .finally(() => {
+        setProduct({});
+      });
   };
 
   const handleEditProduct = (product) => {
@@ -139,17 +143,23 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
           setShowToaster(true);
         }
       })
-      .finally(() => {});
+      .finally(() => {
+        setProduct({});
+      });
   };
 
   const handledDleteProduct = ({ product }) => {
-    deleteProduct(product).then((response) => {
-      if (response) {
-        deleteModalClose();
-        loadProducts();
-        setShowToaster(true);
-      }
-    });
+    deleteProduct(product)
+      .then((response) => {
+        if (response) {
+          deleteModalClose();
+          loadProducts();
+          setShowToaster(true);
+        }
+      })
+      .finally(() => {
+        setProduct({});
+      });
   };
 
   return (
