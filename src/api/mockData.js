@@ -12,7 +12,7 @@ export const mockData = [
     brand: "asus",
     type: "Graphics Card",
     status: "In Stock",
-    imgPath: "/src/assets/images/rog-strix-geforce-rtx-3080.jpg",
+    imgPath: "/images/rog-strix-geforce-rtx-3080.jpg",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const mockData = [
     brand: "sony",
     type: "Camera",
     status: "Up Comming",
-    imgPath: "/src/assets/images/zv-e10-01-500x500.jpg",
+    imgPath: "/images/zv-e10-01-500x500.jpg",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ export const mockData = [
     brand: "msi",
     type: "Motherboard",
     status: "In Stock",
-    imgPath: "/src/assets/images/mag-b760-tomahawk.jpg",
+    imgPath: "/images/mag-b760-tomahawk.jpg",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ export const mockData = [
     brand: "intel",
     type: "Processor",
     status: "In Stock",
-    imgPath: "/src/assets/images/i5-12600k.jpg",
+    imgPath: "/images/i5-12600k.jpg",
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ export const mockData = [
     brand: "asus",
     type: "Monitor",
     status: "In Stock",
-    imgPath: "/src/assets/images/tuf-gaming-vg279q3a.jpg",
+    imgPath: "/images/tuf-gaming-vg279q3a.jpg",
   },
   {
     id: 6,
@@ -88,7 +88,7 @@ export const mockData = [
     brand: "msi",
     type: "Monitor",
     status: "In Stock",
-    imgPath: "/src/assets/images/pro-mp273qp.jpg",
+    imgPath: "/images/pro-mp273qp.jpg",
   },
   {
     id: 7,
@@ -104,7 +104,7 @@ export const mockData = [
     brand: "canon",
     type: "Camera",
     status: "In Stock",
-    imgPath: "/src/assets/images/200d-ii-500x500.jpg",
+    imgPath: "/images/200d-ii-500x500.jpg",
   },
   {
     id: 8,
@@ -120,7 +120,7 @@ export const mockData = [
     brand: "asus",
     type: "Graphics Card",
     status: "Up Comming",
-    imgPath: "/src/assets/images/ko-rtx-3060-ti-oc-edition.jpg",
+    imgPath: "/images/ko-rtx-3060-ti-oc-edition.jpg",
   },
   {
     id: 9,
@@ -135,7 +135,7 @@ export const mockData = [
     brand: "apollo",
     type: "Ups",
     status: "In Stock",
-    imgPath: "/src/assets/images/1120f-01-500x500.jpg",
+    imgPath: "/images/1120f-01-500x500.jpg",
   },
   {
     id: 10,
@@ -150,6 +150,6 @@ export const mockData = [
     brand: "powerguard",
     type: "Ups",
     status: "Up Comming",
-    imgPath: "/src/assets/images/Offline-ups-cs-001-500x500.jpg",
+    imgPath: "/images/Offline-ups-cs-001-500x500.jpg",
   },
 ];
