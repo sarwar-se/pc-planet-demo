@@ -1,10 +1,10 @@
 import { Card } from "react-bootstrap";
-// import rog_strix from "../../assets/images/rog_strix.jpg";
 // import empty_image from "../../assets/images/empty.jpg";
 import cart_icon from "../../assets/icons/cart_icon.png";
 import { Loader } from "../pattern/Loader";
 
 const ProductCard = ({ products, isLoading }) => {
+  const STATUS = "Up Comming";
   return (
     <>
       {isLoading && <Loader />}
@@ -33,7 +33,9 @@ const ProductCard = ({ products, isLoading }) => {
               <Card.Footer className="product-footer">
                 <h4 className="text-center text-danger">
                   {" "}
-                  {Intl.NumberFormat().format(product.price) + "৳"}
+                  {product.status === STATUS
+                    ? "TBA"
+                    : Intl.NumberFormat().format(product.price) + "৳"}
                 </h4>
                 <div className="text-center addCartButton" type="button">
                   <img className="cart-icon" src={cart_icon} /> Add To Cart

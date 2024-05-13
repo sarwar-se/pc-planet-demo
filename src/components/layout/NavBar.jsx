@@ -2,8 +2,8 @@ import { Tab, Tabs } from "react-bootstrap";
 
 const NavigationBar = () => {
   return (
-    <div className="custom-navbar">
-      <Tabs className="">
+    <div className="custom-navbar bg-white border">
+      <Tabs className="container custom-tabs">
         <Tab title="Component"></Tab>
         <Tab title="Monitor"></Tab>
         <Tab title="UPS"></Tab>

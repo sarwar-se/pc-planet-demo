@@ -110,14 +110,17 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
 
   const addModalClose = () => {
     setShowAddModal(false);
+    setProduct({});
   };
 
   const updateModalClose = () => {
     setShowUpdateModal(false);
+    setProduct({});
   };
 
   const deleteModalClose = () => {
     setShowDeleteModal(false);
+    setProduct({});
   };
 
   const handleAddProduct = (product) => {

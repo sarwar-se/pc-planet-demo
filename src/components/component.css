@@ -24,10 +24,9 @@
 /* header ENDS */
 
 /* navigation bar */
-.custom-navbar {
-  height: 40px;
+.custom-tabs {
+  border: none !important;
 }
-
 .custom-navbar .nav-link {
   color: #3b3939 !important;
   border: none !important;
@@ -39,7 +38,7 @@
 
 .custom-navbar .nav-link:hover {
   background-color: transparent !important;
-  color: #5181c9 !important;
+  color: #962d92 !important;
   border: none !important;
   border-bottom: 2px solid !important;
 }

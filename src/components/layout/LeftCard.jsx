@@ -1,7 +1,13 @@
-import { Form } from "react-bootstrap";
+import GroupButton from "../pattern/GroupButton";
 
-const LeftCard = ({ title = "UNKNOWN", values }) => {
-  const type = "checkbox";
+const LeftCard = ({
+  title = "UNKNOWN",
+  values,
+  filterType,
+  filterHandler,
+  groupType,
+  selectedValues,
+}) => {
   return (
     <div className="left-card">
       <div className="left-card-title">
@@ -9,12 +15,13 @@ const LeftCard = ({ title = "UNKNOWN", values }) => {
       </div>
 
       <div className="left-card-body">
-        <Form>
-          {values &&
-            values.map((item, i) => (
-              <Form.Check key={i} label={item} type={type} name="check" />
-            ))}
-        </Form>
+        <GroupButton
+          values={values}
+          filterType={filterType}
+          filterHandler={filterHandler}
+          groupType={groupType}
+          selectedValues={selectedValues}
+        />
       </div>
     </div>
   );

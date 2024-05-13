@@ -4,11 +4,11 @@
 .th-bg {
   background-color: #a6bdd1 !important;
 }
-.custom-table > tbody > tr:nth-of-type(even) > * {
-  background-color: rgb(221, 228, 233);
-}
 .custom-table > tbody > tr:nth-of-type(odd) > * {
-  background-color: #e2e6ee;
+  background-color: rgb(242, 246, 249);
+}
+.custom-table > tbody > tr:nth-of-type(even) > * {
+  background-color: #ccd6db;
 }
 
 .app-btn {
