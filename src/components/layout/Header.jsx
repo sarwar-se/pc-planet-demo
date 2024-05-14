@@ -11,6 +11,9 @@ import {
 } from "react-bootstrap";
 
 import search_icon from "../../assets/icons/search_icon.svg";
+import shopping_cart_white from "../../assets/icons/shopping_cart_white.png";
+import user_profile_icon from "../../assets/icons/user_profile_icon.png";
+import offer_icon from "../../assets/icons/offer_icon.png";
 
 const Header = () => {
   return (
@@ -43,10 +46,18 @@ const Header = () => {
         </Col>
 
         <Nav className="d-flex flex-row">
-          <Nav.Link className="custom-nav-link" href="#">
-            Offer
+          <Nav.Link className="" href="#">
+            <img
+              style={{ width: 40, marginLeft: 10, marginRight: 15 }}
+              src={offer_icon}
+            />
           </Nav.Link>
-          <Nav.Link href="#">Account</Nav.Link>
+          <Navbar.Brand className="mt-1" href="#">
+            <img style={{ width: 35 }} src={shopping_cart_white} />
+          </Navbar.Brand>
+          <Nav.Link className="mt-1" href="#">
+            <img style={{ width: 25 }} src={user_profile_icon} /> Account
+          </Nav.Link>
         </Nav>
       </Container>
     </Navbar>

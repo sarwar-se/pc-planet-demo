@@ -3,11 +3,12 @@ import ProductCard from "../components/layout/ProductCard";
 import { getProducts } from "../api/api";
 import LeftCard from "../components/layout/LeftCard";
 import TopBar from "../components/layout/TopBar";
-import { filterType, productView } from "../constants/appConstant";
+import { filterType, productView, sortType } from "../constants/appConstant";
 import ProductList from "../components/layout/ProductList";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
+  const [defaultProducts, setDefaultProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [view, setView] = useState(productView.card);
   const [selectedAvailability, setSelectedAvailability] = useState([]);
@@ -38,7 +39,6 @@ const Dashboard = () => {
         setSelectedCategories((prev) => [...prev, value]);
       }
     }
-    filteredProducts();
   };
 
   const filteredProducts = products.filter((product) => {
@@ -53,11 +53,28 @@ const Dashboard = () => {
     return categoryMatch && BrandMatch && availabilityMatch;
   });
 
+  const sortProducts = (type) => {
+    const sortedProducts = [...products].sort((a, b) => {
+      if (type === sortType.lowToHigh) {
+        return a.price - b.price;
+      } else if (type === sortType.highToLow) {
+        return b.price - a.price;
+      }
+    });
+
+    if (type === sortType.default) {
+      setProducts([...defaultProducts]);
+    } else {
+      setProducts([...sortedProducts]);
+    }
+  };
+
   const fetchProducts = () => {
     setIsLoading(true);
     getProducts()
       .then((response) => {
         setProducts(response.data);
+        setDefaultProducts(response.data);
       })
       .finally(() => {
         setIsLoading(false);
@@ -110,7 +127,11 @@ const Dashboard = () => {
       </div>
       <div className="col-10">
         <div>
-          <TopBar activeView={view} onChangeView={setView} />
+          <TopBar
+            activeView={view}
+            onChangeView={setView}
+            sortProducts={sortProducts}
+          />
         </div>
         {view === productView.list && (
           <div>

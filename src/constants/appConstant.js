@@ -31,3 +31,9 @@ export const filterType = {
   BRAND: "brand",
   AVAILABILITY: "availability",
 };
+
+export const sortType = {
+  lowToHigh: "asc",
+  highToLow: "desc",
+  default: "default",
+};

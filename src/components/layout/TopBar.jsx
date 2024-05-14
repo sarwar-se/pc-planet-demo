@@ -1,9 +1,9 @@
 import { Form } from "react-bootstrap";
 import card_view from "../../assets/icons/card_view.png";
 import list_view from "../../assets/icons/list_view.png";
-import { productView } from "../../constants/appConstant";
+import { productView, sortType } from "../../constants/appConstant";
 
-const TopBar = ({ activeView, onChangeView }) => {
+const TopBar = ({ activeView, onChangeView, sortProducts }) => {
   return (
     <div className="top-bar d-flex flex-row justify-content-between ">
       <div className="d-flex gap-1">
@@ -37,10 +37,14 @@ const TopBar = ({ activeView, onChangeView }) => {
         </div>
 
         <div className="custom-select opacity-75">
-          <Form.Select className="custom-select" size="sm">
-            <option href="#">Default</option>
-            <option href="#">{"Price (Low > High)"}</option>
-            <option href="#">{"Price (High > Low)"}</option>
+          <Form.Select
+            className="custom-select"
+            size="sm"
+            onChange={(e) => sortProducts(e.target.value)}
+          >
+            <option value={sortType.default}>Default</option>
+            <option value={sortType.lowToHigh}>{"Price (Low > High)"}</option>
+            <option value={sortType.highToLow}>{"Price (High > Low)"}</option>
           </Form.Select>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const getMockProduct = () => {
     setTimeout(() => {
       resolve({ data: mockData });
       reject({ error: false });
-    }, 2 * 1000);
+    }, 1 * 1000);
   });
 };
 
