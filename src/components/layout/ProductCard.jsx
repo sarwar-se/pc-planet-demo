@@ -1,10 +1,10 @@
 import { Card } from "react-bootstrap";
-// import empty_image from "../../assets/images/empty.jpg";
-import cart_icon from "../../assets/icons/cart_icon.png";
+import { add_cart_icon } from "../../assets/index";
 import { Loader } from "../pattern/Loader";
+import { productStatus } from "../../constants/appConstant";
 
 const ProductCard = ({ products, isLoading }) => {
-  const STATUS = "Up Comming";
+  const empty_image = "empty.jpg";
   return (
     <>
       {isLoading && <Loader />}
@@ -13,8 +13,13 @@ const ProductCard = ({ products, isLoading }) => {
           products.map((product, i) => (
             <div className="col " key={i}>
               <Card className="product-card">
-                <Card.Img variant="top" src={product.imgPath} />
-                <Card.Body>
+                <Card.Img
+                  variant="top"
+                  src={`/images/${
+                    product.imgName ? product.imgName : empty_image
+                  }`}
+                />
+                <Card.Body className="pb-0">
                   <Card.Title
                     style={{ fontSize: 15, marginTop: 0, fontWeight: "bold" }}
                   >
@@ -32,14 +37,15 @@ const ProductCard = ({ products, isLoading }) => {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer className="product-footer">
-                  <h4 className="text-center text-danger">
+                  <h5 className="text-center text-danger">
                     {" "}
-                    {product.status === STATUS
-                      ? "TBA"
+                    {product.status === productStatus.upComing
+                      ? productStatus.upComing
                       : Intl.NumberFormat().format(product.price) + "৳"}
-                  </h4>
+                  </h5>
                   <div className="text-center addCartButton" type="button">
-                    <img className="cart-icon" src={cart_icon} /> Add To Cart
+                    <img className="cart-icon" src={add_cart_icon} /> Add To
+                    Cart
                   </div>
                 </Card.Footer>
               </Card>

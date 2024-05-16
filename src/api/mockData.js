@@ -12,7 +12,7 @@ export const mockData = [
     brand: "ASUS",
     type: "Graphics Card",
     status: "In Stock",
-    imgPath: "/images/rog-strix-geforce-rtx-3080.jpg",
+    imgName: "rog-strix-geforce-rtx-3080.jpg",
   },
   {
     id: 2,
@@ -27,8 +27,8 @@ export const mockData = [
     price: 80900,
     brand: "SONY",
     type: "Camera",
-    status: "Up Comming",
-    imgPath: "/images/zv-e10-01-500x500.jpg",
+    status: "Up Coming",
+    imgName: "zv-e10-01-500x500.jpg",
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ export const mockData = [
     brand: "MSI",
     type: "Motherboard",
     status: "In Stock",
-    imgPath: "/images/mag-b760-tomahawk.jpg",
+    imgName: "mag-b760-tomahawk.jpg",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ export const mockData = [
     brand: "INTEL",
     type: "Processor",
     status: "In Stock",
-    imgPath: "/images/i5-12600k.jpg",
+    imgName: "i5-12600k.jpg",
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ export const mockData = [
     brand: "ASUS",
     type: "Monitor",
     status: "In Stock",
-    imgPath: "/images/tuf-gaming-vg279q3a.jpg",
+    imgName: "tuf-gaming-vg279q3a.jpg",
   },
   {
     id: 6,
@@ -88,7 +88,7 @@ export const mockData = [
     brand: "MSI",
     type: "Monitor",
     status: "In Stock",
-    imgPath: "/images/pro-mp273qp.jpg",
+    imgName: "pro-mp273qp.jpg",
   },
   {
     id: 7,
@@ -104,7 +104,7 @@ export const mockData = [
     brand: "CANON",
     type: "Camera",
     status: "In Stock",
-    imgPath: "/images/200d-ii-500x500.jpg",
+    imgName: "200d-ii-500x500.jpg",
   },
   {
     id: 8,
@@ -119,8 +119,8 @@ export const mockData = [
     price: 39500,
     brand: "ASUS",
     type: "Graphics Card",
-    status: "Up Comming",
-    imgPath: "/images/ko-rtx-3060-ti-oc-edition.jpg",
+    status: "Up Coming",
+    imgName: "ko-rtx-3060-ti-oc-edition.jpg",
   },
   {
     id: 9,
@@ -135,7 +135,7 @@ export const mockData = [
     brand: "APOLLO",
     type: "Ups",
     status: "In Stock",
-    imgPath: "/images/1120f-01-500x500.jpg",
+    imgName: "1120f-01-500x500.jpg",
   },
   {
     id: 10,
@@ -149,7 +149,7 @@ export const mockData = [
     price: 3400,
     brand: "POWER GUARD",
     type: "Ups",
-    status: "Up Comming",
-    imgPath: "/images/Offline-ups-cs-001-500x500.jpg",
+    status: "Up Coming",
+    imgName: "Offline-ups-cs-001-500x500.jpg",
   },
 ];

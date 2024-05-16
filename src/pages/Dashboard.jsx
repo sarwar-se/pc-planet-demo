@@ -16,10 +16,12 @@ const Dashboard = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const availabilities = [
-    ...new Set(products.map((product) => product.status)),
+    ...new Set(defaultProducts.map((product) => product.status)),
   ];
-  const brands = [...new Set(products.map((product) => product.brand))];
-  const categories = [...new Set(products.map((product) => product.type))];
+  const brands = [...new Set(defaultProducts.map((product) => product.brand))];
+  const categories = [
+    ...new Set(defaultProducts.map((product) => product.type)),
+  ];
 
   const handleProductsFilter = (type, value) => {
     if (type === filterType.AVAILABILITY) {

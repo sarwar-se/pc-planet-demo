@@ -1,3 +1,132 @@
+/* header */
+.search-field {
+  color: black !important;
+  border: none !important;
+  min-height: 40px;
+}
+
+.search-form .form-control:hover {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.search-form .form-control {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.search-form {
+  color: black !important;
+  width: 80%;
+  border-radius: 3px;
+}
+
+.search-button {
+  color: black !important;
+  border: none !important;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+.profile-title {
+  color: white;
+}
+.inner-div {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.cart-count {
+  position: relative;
+  top: -10px;
+  right: 10px;
+  width: 5px;
+  height: 10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px 2px 7px;
+  font-size: 15px;
+}
+/* header ENDS */
+
+/* navigation bar */
+.custom-tabs {
+  border: none !important;
+  min-height: 42px;
+}
+.custom-navbar .nav-link {
+  color: #3b3939 !important;
+  border: none !important;
+}
+
+.custom-navbar .nav-tabs {
+  background-color: white;
+}
+
+.custom-navbar .nav-link:hover {
+  background-color: transparent !important;
+  color: #962d92 !important;
+  border: none !important;
+  border-bottom: 2px solid !important;
+}
+
+.custom-tabs .active {
+  background-color: transparent !important;
+  color: #962d92 !important;
+  border: none !important;
+  border-bottom: 2px solid !important;
+}
+
+/* navigation bar ENDS */
+
+.top-bar {
+  background-color: white;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #e6ebee;
+}
+/* product card */
+.product-card {
+  height: 100% !important;
+  border: 1px solid #e6ebee !important;
+}
+.product-footer {
+  border-color: #e9eaf1 !important;
+  background-color: transparent !important;
+}
+
+.addCartButton {
+  padding: 4px;
+  background-color: #eeeff8;
+  color: #0065a9;
+}
+
+.cart-icon {
+  width: 25px;
+  height: 25px;
+}
+/* product card ENDS */
+
+/* left card */
+.left-card {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #e6ebee;
+}
+
+.left-card-title {
+  border-bottom: 1px solid #d9dae2;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.left-card-body {
+  padding-top: 10px;
+}
+/* left card ENDS */
+
 .default-btn {
   font-weight: 400;
   text-align: center;
@@ -32,6 +161,6 @@
   width: 1.2rem;
 }
 
-.logo-size{
+.logo-size {
   width: 50px;
 }
