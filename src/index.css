@@ -1,6 +1,6 @@
 body {
   font-family: "Trebuchet MS", sans-serif;
-  margin: 0;
+  margin: 0 !important;
   padding: 0 !important;
   color: #222222;
   background-color: #f2f4f8;
@@ -8,7 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html{overflow-y: scroll;}
+html {
+  overflow-y: scroll;
+}
 
 @media (prefers-color-scheme: light) {
 }

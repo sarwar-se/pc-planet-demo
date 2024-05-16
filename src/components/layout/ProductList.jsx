@@ -29,6 +29,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     status: "",
     imgPath: "",
   });
+  const empty_image = "empty.jpg";
 
   const getTableMetaData = () => [
     {
@@ -63,10 +64,15 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     },
     {
       headerTitle: "Image",
-      fieldName: "imgPath",
+      fieldName: "imgName",
       render: (rowData) => (
         <>
-          <img style={{ width: 50, height: 50 }} src={rowData["imgPath"]} />
+          <img
+            style={{ width: 50, height: 50 }}
+            src={`/images/${
+              rowData["imgName"] ? rowData["imgName"] : empty_image
+            }`}
+          />
         </>
       ),
     },

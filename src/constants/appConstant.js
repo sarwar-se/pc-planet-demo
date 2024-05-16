@@ -37,3 +37,9 @@ export const sortType = {
   highToLow: "desc",
   default: "default",
 };
+
+export const productStatus = {
+  upComing: "Up Coming",
+  inStock: "In Stock",
+  preOrder: "Pre Order",
+};
