@@ -12,6 +12,7 @@ const GroupButton = ({
       {values &&
         values.map((item, i) => (
           <Form.Check
+          className="check-box"
             key={i}
             label={item}
             type={groupType}

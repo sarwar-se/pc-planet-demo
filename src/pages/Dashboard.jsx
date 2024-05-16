@@ -89,7 +89,7 @@ const Dashboard = () => {
 
   return (
     <div className="container mt-3 d-flex flex-row gap-2">
-      <div className="col-2 d-flex flex-column gap-2">
+      <div className="col-3 d-flex flex-column gap-2">
         <div>
           {availabilities.length > 0 && (
             <LeftCard
@@ -127,7 +127,7 @@ const Dashboard = () => {
           )}
         </div>
       </div>
-      <div className="col-10">
+      <div className="col-9">
         <div>
           <TopBar
             activeView={view}

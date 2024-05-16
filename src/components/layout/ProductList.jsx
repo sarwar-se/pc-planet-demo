@@ -35,36 +35,43 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     {
       headerTitle: "ID",
       fieldName: "id",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["id"]}</>,
     },
     {
       headerTitle: "Product Name",
       fieldName: "title",
+      colSize: "col-4",
       render: (rowData) => <>{rowData["title"]}</>,
     },
     {
       headerTitle: "Brand",
       fieldName: "brand",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["brand"]}</>,
     },
     {
       headerTitle: "Category",
       fieldName: "type",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["type"]}</>,
     },
     {
       headerTitle: "Price",
       fieldName: "price",
+      colSize: "col-1",
       render: (rowData) => <>{Intl.NumberFormat().format(rowData["price"])}</>,
     },
     {
       headerTitle: "Status",
       fieldName: "status",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["status"]}</>,
     },
     {
       headerTitle: "Image",
       fieldName: "imgName",
+      colSize: "col-1",
       render: (rowData) => (
         <>
           <img
@@ -78,6 +85,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     },
     {
       headerTitle: "Actions",
+      colSize: "col-2",
       render: (rowData) => (
         <>
           <div className="d-flex flex-row gap-2">

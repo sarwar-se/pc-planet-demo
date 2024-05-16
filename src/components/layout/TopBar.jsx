@@ -6,7 +6,7 @@ import { productView, sortType } from "../../constants/appConstant";
 const TopBar = ({ activeView, onChangeView, sortProducts }) => {
   return (
     <div className="top-bar d-flex flex-row justify-content-between ">
-      <div className="d-flex gap-1">
+      <div className="d-flex gap-2">
         <button
           className={
             activeView === productView.card ? "active-btn" : "default-btn"
