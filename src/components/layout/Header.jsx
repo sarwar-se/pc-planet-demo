@@ -1,23 +1,13 @@
-// import React from "react";
-
+import { Col, Container, Image, Nav, Navbar } from "react-bootstrap";
 import {
-  Button,
-  Col,
-  Container,
-  Form,
-  Image,
-  Nav,
-  Navbar,
-} from "react-bootstrap";
-import {
-  search_icon,
   pc_planet_logo,
   user_icon_yellow,
   discount_off_icon,
   shopping_cart_yellow,
 } from "../../assets/index";
+import SearchProduct from "../product/SearchProduct";
 
-const Header = () => {
+const Header = ({ data }) => {
   const cartCount = 0;
   return (
     <Navbar
@@ -34,17 +24,7 @@ const Header = () => {
           </Navbar.Brand>
         </Nav>
         <Col className="d-flex justify-content-center">
-          <Form className="d-flex search-form bg-light">
-            <Form.Control
-              className="bg-light search-field"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <Button className="bg-light search-button">
-              <img className="search-icon" src={search_icon} />
-            </Button>
-          </Form>
+          <SearchProduct data={data} />
         </Col>
 
         <Nav className="d-flex flex-lg-row flex-md-row flex-sm-row flex-column gap-3 align-items-center">
@@ -53,7 +33,7 @@ const Header = () => {
               <div>
                 <img style={{ width: 35 }} src={discount_off_icon} />
               </div>
-              <div className="">
+              <div>
                 <p className="text-light m-0">Offers</p>
                 <p className="text-danger m-0" style={{ fontSize: "13px" }}>
                   28 Jun Ends

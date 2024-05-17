@@ -1,6 +1,5 @@
 import { Form } from "react-bootstrap";
-import card_view from "../../assets/icons/card_view.png";
-import list_view from "../../assets/icons/list_view.png";
+import { list_icon, grid_icon } from "../../assets/index.js";
 import { productView, sortType } from "../../constants/appConstant";
 
 const TopBar = ({ activeView, onChangeView, sortProducts }) => {
@@ -16,8 +15,9 @@ const TopBar = ({ activeView, onChangeView, sortProducts }) => {
             onChangeView(productView.card);
           }}
         >
-          <img className="view-icon" src={card_view} />
+          <img className="view-icon" src={grid_icon} />
         </button>
+
         <button
           className={
             activeView === productView.list ? "active-btn" : "default-btn"
@@ -27,7 +27,7 @@ const TopBar = ({ activeView, onChangeView, sortProducts }) => {
             onChangeView(productView.list);
           }}
         >
-          <img className="view-icon" src={list_view} />
+          <img className="view-icon" src={list_icon} />
         </button>
       </div>
 

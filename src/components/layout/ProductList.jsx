@@ -5,7 +5,11 @@ import AppModal from "../pattern/AppModal";
 import ProductForm from "../../pages/ProductForm";
 import { updateProduct, deleteProduct, addProduct } from "../../api/api";
 import AppToast from "../pattern/AppToast";
-import { colorVarient, toastPosition } from "../../constants/appConstant";
+import {
+  colorVarient,
+  numberFormat,
+  toastPosition,
+} from "../../constants/appConstant";
 import { Loader } from "../pattern/Loader";
 import add_icon_white from "/src/assets/icons/add_icon_white.svg";
 
@@ -60,7 +64,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
       headerTitle: "Price",
       fieldName: "price",
       colSize: "col-1",
-      render: (rowData) => <>{Intl.NumberFormat().format(rowData["price"])}</>,
+      render: (rowData) => <>{numberFormat(rowData["price"])}</>,
     },
     {
       headerTitle: "Status",
@@ -186,7 +190,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
           <Loader />
         ) : (
           <>
-            <div className="text-end p-2">
+            <div className="text-end mb-2">
               <AppButton
                 rowData={product}
                 btnClass="bg-success"

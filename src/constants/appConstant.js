@@ -43,3 +43,7 @@ export const productStatus = {
   inStock: "In Stock",
   preOrder: "Pre Order",
 };
+
+export const numberFormat = (number) => {
+  return Intl.NumberFormat().format(number);
+};

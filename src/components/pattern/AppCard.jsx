@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
 import { add_cart_icon } from "../../assets/index";
-import { productStatus } from "../../constants/appConstant";
+import { numberFormat, productStatus } from "../../constants/appConstant";
 
 const AppCard = ({ product }) => {
   const empty_image = "empty.jpg";
@@ -35,7 +35,7 @@ const AppCard = ({ product }) => {
           {" "}
           {product.status === productStatus.upComing
             ? productStatus.upComing
-            : Intl.NumberFormat().format(product.price) + "৳"}
+            : numberFormat(product.price) + "৳"}
         </h5>
         <div className="text-center addCartButton" type="button">
           <img className="cart-icon" src={add_cart_icon} /> Add To Cart
