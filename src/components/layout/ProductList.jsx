@@ -5,7 +5,11 @@ import AppModal from "../pattern/AppModal";
 import ProductForm from "../../pages/ProductForm";
 import { updateProduct, deleteProduct, addProduct } from "../../api/api";
 import AppToast from "../pattern/AppToast";
-import { colorVarient, toastPosition } from "../../constants/appConstant";
+import {
+  colorVarient,
+  numberFormat,
+  toastPosition,
+} from "../../constants/appConstant";
 import { Loader } from "../pattern/Loader";
 import add_icon_white from "/src/assets/icons/add_icon_white.svg";
 
@@ -35,36 +39,43 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     {
       headerTitle: "ID",
       fieldName: "id",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["id"]}</>,
     },
     {
       headerTitle: "Product Name",
       fieldName: "title",
+      colSize: "col-4",
       render: (rowData) => <>{rowData["title"]}</>,
     },
     {
       headerTitle: "Brand",
       fieldName: "brand",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["brand"]}</>,
     },
     {
       headerTitle: "Category",
       fieldName: "type",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["type"]}</>,
     },
     {
       headerTitle: "Price",
       fieldName: "price",
-      render: (rowData) => <>{Intl.NumberFormat().format(rowData["price"])}</>,
+      colSize: "col-1",
+      render: (rowData) => <>{numberFormat(rowData["price"])}</>,
     },
     {
       headerTitle: "Status",
       fieldName: "status",
+      colSize: "col-1",
       render: (rowData) => <>{rowData["status"]}</>,
     },
     {
       headerTitle: "Image",
       fieldName: "imgName",
+      colSize: "col-1",
       render: (rowData) => (
         <>
           <img
@@ -78,6 +89,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     },
     {
       headerTitle: "Actions",
+      colSize: "col-2",
       render: (rowData) => (
         <>
           <div className="d-flex flex-row gap-2">
@@ -178,7 +190,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
           <Loader />
         ) : (
           <>
-            <div className="text-end p-2">
+            <div className="text-end mb-2">
               <AppButton
                 rowData={product}
                 btnClass="bg-success"

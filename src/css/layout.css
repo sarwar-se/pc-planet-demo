@@ -17,8 +17,10 @@
 
 .search-form {
   color: black !important;
-  width: 80%;
+  /* width: 80%; */
   border-radius: 3px;
+  min-width: 600px;
+  align-items: center;
 }
 
 .search-button {
@@ -84,13 +86,22 @@
 .top-bar {
   background-color: white;
   padding: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   border: 1px solid #e6ebee;
 }
 /* product card */
 .product-card {
   height: 100% !important;
   border: 1px solid #e6ebee !important;
+}
+.product-card:hover {
+  transform: scale(1.01) !important;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px 0px rgba(156, 148, 148, 0.5);
+}
+.product-card-header {
+  background-color: transparent !important;
+  border: none !important;
 }
 .product-footer {
   border-color: #e9eaf1 !important;
@@ -112,18 +123,20 @@
 /* left card */
 .left-card {
   background-color: white;
-  padding: 15px;
+  padding: 10px 20px;
   border: 1px solid #e6ebee;
 }
-
-.left-card-title {
-  border-bottom: 1px solid #d9dae2;
-  padding-bottom: 10px;
-  font-weight: bold;
+.toggle-button {
+  background-color: transparent;
+  border: none;
 }
 
 .left-card-body {
   padding-top: 10px;
+}
+.group-form {
+  padding-top: 10px;
+  border-top: 1px solid #d9dae2;
 }
 /* left card ENDS */
 
@@ -132,30 +145,34 @@
   text-align: center;
   vertical-align: middle;
   border: 1px solid #ebdede;
-  padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
+  background: transparent;
+  opacity: 50%;
 }
 .default-btn:hover {
-  border: 1px solid #7792dd;
-  background-color: rgb(196, 208, 241);
+  border: 1px solid #efae71;
+  background-color: rgb(246, 244, 241);
+  opacity: 100%;
 }
 
 .active-btn {
   font-weight: 400;
   text-align: center;
   vertical-align: middle;
-  border: 2px solid #bd9898;
-  padding: 0.375rem 0.75rem;
+  border: 2px solid #d57e1a;
+  /* padding: 0.375rem 0.75rem; */
   border-radius: 0.25rem;
+  background: transparent;
 }
 .active-btn:hover {
-  border: 2px solid #7792dd;
-  background-color: rgb(196, 208, 241);
+  border: 2px solid #efae71;
+  background-color: rgb(246, 244, 241);
 }
 .view-icon {
   border: 0;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
+  padding: 0px;
 }
 .add-icon-size {
   width: 1.2rem;
@@ -163,4 +180,9 @@
 
 .logo-size {
   width: 50px;
+}
+
+.under-dev {
+  direction: rtl;
+  text-align: right;
 }

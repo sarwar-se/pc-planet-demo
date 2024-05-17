@@ -18,7 +18,7 @@ const TableView = ({ tableMetaData, data }) => {
             {data.map((rowData, i) => (
               <tr key={i}>
                 {tableMetaData.map((meta, j) => (
-                  <td className="t-size border-0" key={j}>
+                  <td className={`t-size border-0 ${meta.colSize}`} key={j}>
                     {meta.render(rowData)}
                   </td>
                 ))}

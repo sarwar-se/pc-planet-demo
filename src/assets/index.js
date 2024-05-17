@@ -1,3 +1,5 @@
+import list_icon from "./icons/list_icon.png";
+import grid_icon from "./icons/grid_icon.png";
 import card_view from "./icons/card_view.png";
 import list_view from "./icons/list_view.png";
 import search_icon from "./icons/search_icon.png";
@@ -9,6 +11,8 @@ import discount_off_icon from "./icons/discount_off_icon.png";
 import shopping_cart_yellow from "./icons/shopping_cart_yellow.png";
 
 export {
+  list_icon,
+  grid_icon,
   card_view,
   list_view,
   search_icon,

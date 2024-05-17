@@ -8,10 +8,11 @@ const GroupButton = ({
   selectedValues,
 }) => {
   return (
-    <Form>
+    <Form className="group-form">
       {values &&
         values.map((item, i) => (
           <Form.Check
+          className="check-box"
             key={i}
             label={item}
             type={groupType}

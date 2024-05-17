@@ -5,6 +5,8 @@ import LeftCard from "../components/layout/LeftCard";
 import TopBar from "../components/layout/TopBar";
 import { filterType, productView, sortType } from "../constants/appConstant";
 import ProductList from "../components/layout/ProductList";
+import Header from "../components/layout/Header";
+import NavBar from "../components/layout/NavBar";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -88,74 +90,84 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="container mt-3 d-flex flex-row gap-2">
-      <div className="col-2 d-flex flex-column gap-2">
-        <div>
-          {availabilities.length > 0 && (
-            <LeftCard
-              title={"Availability"}
-              values={availabilities}
-              filterType={filterType.AVAILABILITY}
-              filterHandler={handleProductsFilter}
-              groupType={"radio"}
-              selectedValues={selectedAvailability}
-            />
-          )}
+    <>
+      <Header data={products} />
+      <NavBar />
+      <div className="container mt-2 d-flex flex-row gap-2">
+        <div className="col-3 d-flex flex-column gap-2">
+          <div className=" bg-white px-2 border">
+            <marquee className="fw-bold mt-1 text-danger">
+              Under Development
+            </marquee>
+          </div>
+          <div>
+            {availabilities.length > 0 && (
+              <LeftCard
+                title={"Availability"}
+                values={availabilities}
+                filterType={filterType.AVAILABILITY}
+                filterHandler={handleProductsFilter}
+                groupType={"radio"}
+                selectedValues={selectedAvailability}
+              />
+            )}
+          </div>
+          <div>
+            {brands.length > 0 && (
+              <LeftCard
+                title={"Brand"}
+                values={brands}
+                filterType={filterType.BRAND}
+                filterHandler={handleProductsFilter}
+                groupType={"checkbox"}
+                selectedValues={selectedBrands}
+              />
+            )}
+          </div>
+          <div>
+            {categories.length > 0 && (
+              <LeftCard
+                title={"Category"}
+                values={categories}
+                filterType={filterType.CATEGORY}
+                filterHandler={handleProductsFilter}
+                groupType={"checkbox"}
+                selectedValues={selectedCategories}
+              />
+            )}
+          </div>
         </div>
-        <div>
-          {brands.length > 0 && (
-            <LeftCard
-              title={"Brand"}
-              values={brands}
-              filterType={filterType.BRAND}
-              filterHandler={handleProductsFilter}
-              groupType={"checkbox"}
-              selectedValues={selectedBrands}
+        <div className="col-9">
+          <div>
+            <TopBar
+              activeView={view}
+              onChangeView={setView}
+              sortProducts={sortProducts}
             />
+          </div>
+
+          {view === productView.list && (
+            <div>
+              <ProductList
+                products={filteredProducts}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                loadProducts={fetchProducts}
+              />
+            </div>
           )}
-        </div>
-        <div>
-          {categories.length > 0 && (
-            <LeftCard
-              title={"Category"}
-              values={categories}
-              filterType={filterType.CATEGORY}
-              filterHandler={handleProductsFilter}
-              groupType={"checkbox"}
-              selectedValues={selectedCategories}
-            />
+          {view === productView.card && (
+            <div>
+              <ProductCard
+                products={filteredProducts}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            </div>
           )}
         </div>
       </div>
-      <div className="col-10">
-        <div>
-          <TopBar
-            activeView={view}
-            onChangeView={setView}
-            sortProducts={sortProducts}
-          />
-        </div>
-        {view === productView.list && (
-          <div>
-            <ProductList
-              products={filteredProducts}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              loadProducts={fetchProducts}
-            />
-          </div>
-        )}
-        {view === productView.card && (
-          <div>
-            <ProductCard
-              products={filteredProducts}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-          </div>
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 
