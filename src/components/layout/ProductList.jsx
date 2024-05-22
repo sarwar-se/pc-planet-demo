@@ -2,8 +2,8 @@ import { useState } from "react";
 import AppButton from "../pattern/AppButton";
 import TableView from "../pattern/TableView";
 import AppModal from "../pattern/AppModal";
-import ProductForm from "../../pages/ProductForm";
-import { updateProduct, deleteProduct, addProduct } from "../../api/api";
+import ProductForm from "../product/ProductForm";
+import { updateProduct, deleteProduct } from "../../api/api";
 import AppToast from "../pattern/AppToast";
 import {
   colorVarient,
@@ -11,10 +11,12 @@ import {
   toastPosition,
 } from "../../constants/appConstant";
 import { Loader } from "../pattern/Loader";
-import add_icon_white from "/src/assets/icons/add_icon_white.svg";
+import { add_icon_white } from "../../assets/index";
+import { useNavigate } from "react-router-dom";
+import { appRoutes } from "../../constants/appRoutes";
 
 const ProductList = ({ products, loadProducts, isLoading }) => {
-  const [showAddModal, setShowAddModal] = useState(false);
+  const navigate = useNavigate();
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showToaster, setShowToaster] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -83,6 +85,7 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
             src={`/images/${
               rowData["imgName"] ? rowData["imgName"] : empty_image
             }`}
+            alt=""
           />
         </>
       ),
@@ -112,9 +115,6 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
       ),
     },
   ];
-  const addModalShow = () => {
-    setShowAddModal(true);
-  };
 
   const editModalShow = (rowData) => {
     setProduct({ ...rowData });
@@ -126,33 +126,18 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
     setShowDeleteModal(true);
   };
 
-  const addModalClose = () => {
-    setShowAddModal(false);
-    setProduct({});
-  };
-
   const updateModalClose = () => {
     setShowUpdateModal(false);
     setProduct({});
   };
 
+  const addProductNavigate = () => {
+    navigate(appRoutes.addProduct);
+  };
+
   const deleteModalClose = () => {
     setShowDeleteModal(false);
     setProduct({});
-  };
-
-  const handleAddProduct = (product) => {
-    addProduct(product)
-      .then((response) => {
-        if (response) {
-          loadProducts();
-          addModalClose();
-          setShowToaster(true);
-        }
-      })
-      .finally(() => {
-        setProduct({});
-      });
   };
 
   const handleEditProduct = (product) => {
@@ -191,13 +176,13 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
         ) : (
           <>
             <div className="text-end mb-2">
-              <AppButton
-                rowData={product}
-                btnClass="bg-success"
-                handleClick={addModalShow}
-              >
-                <img className="add-icon-size" src={add_icon_white} /> Add
-                Product
+              <AppButton btnClass="bg-success" handleClick={addProductNavigate}>
+                <img
+                  className="add-icon-size"
+                  src={add_icon_white}
+                  alt="add icon"
+                />{" "}
+                Add Product
               </AppButton>
             </div>
             <TableView tableMetaData={getTableMetaData()} data={products} />
@@ -224,28 +209,6 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
           formData={product}
           setFormData={setProduct}
           handleSubmit={handleEditProduct}
-        />
-      </AppModal>
-
-      <AppModal
-        show={showAddModal}
-        handleAccept={handleAddProduct}
-        handleCancel={addModalClose}
-        showTitle={false}
-        showHeader={true}
-        showFooter={true}
-        headerTitle={"Add Product"}
-        acceptText={"Submit"}
-        cancelText={"Cancel"}
-        animation={true}
-        backdrop={"static"}
-        centered={true}
-        size={"xl"}
-      >
-        <ProductForm
-          formData={product}
-          setFormData={setProduct}
-          handleSubmit={handleAddProduct}
         />
       </AppModal>
 

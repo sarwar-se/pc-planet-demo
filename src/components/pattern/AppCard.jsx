@@ -38,7 +38,8 @@ const AppCard = ({ product }) => {
             : numberFormat(product.price) + "৳"}
         </h5>
         <div className="text-center addCartButton" type="button">
-          <img className="cart-icon" src={add_cart_icon} /> Add To Cart
+          <img className="cart-icon" src={add_cart_icon} alt="cart icon" /> Add
+          To Cart
         </div>
       </Card.Footer>
     </Card>

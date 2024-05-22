@@ -7,7 +7,7 @@ import {
 } from "../../assets/index";
 import SearchProduct from "../product/SearchProduct";
 
-const Header = ({ data }) => {
+const Header = () => {
   const cartCount = 0;
   return (
     <Navbar
@@ -24,14 +24,18 @@ const Header = ({ data }) => {
           </Navbar.Brand>
         </Nav>
         <Col className="d-flex justify-content-center">
-          <SearchProduct data={data} />
+          <SearchProduct />
         </Col>
 
         <Nav className="d-flex flex-lg-row flex-md-row flex-sm-row flex-column gap-3 align-items-center">
           <Nav.Link href="#">
             <div className="d-flex flex-row align-items-center gap-2">
               <div>
-                <img style={{ width: 35 }} src={discount_off_icon} />
+                <img
+                  style={{ width: 35 }}
+                  src={discount_off_icon}
+                  alt="offer icon"
+                />
               </div>
               <div>
                 <p className="text-light m-0">Offers</p>
@@ -43,39 +47,28 @@ const Header = ({ data }) => {
           </Nav.Link>
 
           <Nav.Link href="#">
-            <img style={{ width: 35 }} src={shopping_cart_yellow} />
+            <img
+              style={{ width: 35 }}
+              src={shopping_cart_yellow}
+              alt="cart icon"
+            />
             {<span className="cart-count">{cartCount}</span>}
           </Nav.Link>
 
           <Nav className="d-flex flex-row gap-2 text-light align-items-center">
             <div>
-              <img style={{ width: 25 }} src={user_icon_yellow} />
+              <img
+                style={{ width: 25 }}
+                src={user_icon_yellow}
+                alt="profile icon"
+              />
             </div>
             <div className="d-flex flex-column">
               <p style={{ marginBottom: "0" }}>Account</p>
               <div className="d-flex flex-row gap-1">
-                <p
-                  style={{
-                    margin: "0",
-                    fontSize: "15px",
-                    color: "gray",
-                  }}
-                >
-                  Login
-                </p>
-                <p
-                  style={{
-                    margin: "0",
-                    fontSize: "15px",
-                  }}
-                >
-                  /
-                </p>
-                <p
-                  style={{ marginBottom: "0", fontSize: "15px", color: "gray" }}
-                >
-                  Register
-                </p>
+                <p className="login-register">Login</p>
+                <p className="login-register">/</p>
+                <p className="login-register">Register</p>
               </div>
             </div>
           </Nav>

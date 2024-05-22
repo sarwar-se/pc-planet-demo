@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/no-distracting-elements */
 import { useEffect, useState } from "react";
 import ProductCard from "../components/layout/ProductCard";
 import { getProducts } from "../api/api";
 import LeftCard from "../components/layout/LeftCard";
 import TopBar from "../components/layout/TopBar";
-import { filterType, productView, sortType } from "../constants/appConstant";
+import {
+  filterType,
+  groupType,
+  productView,
+  sortType,
+} from "../constants/appConstant";
 import ProductList from "../components/layout/ProductList";
-import Header from "../components/layout/Header";
-import NavBar from "../components/layout/NavBar";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -64,6 +68,7 @@ const Dashboard = () => {
       } else if (type === sortType.highToLow) {
         return b.price - a.price;
       }
+      return [...products];
     });
 
     if (type === sortType.default) {
@@ -91,8 +96,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header data={products} />
-      <NavBar />
       <div className="container mt-2 d-flex flex-row gap-2">
         <div className="col-3 d-flex flex-column gap-2">
           <div className=" bg-white px-2 border">
@@ -107,7 +110,7 @@ const Dashboard = () => {
                 values={availabilities}
                 filterType={filterType.AVAILABILITY}
                 filterHandler={handleProductsFilter}
-                groupType={"radio"}
+                group={groupType.radio}
                 selectedValues={selectedAvailability}
               />
             )}
@@ -119,7 +122,7 @@ const Dashboard = () => {
                 values={brands}
                 filterType={filterType.BRAND}
                 filterHandler={handleProductsFilter}
-                groupType={"checkbox"}
+                group={groupType.checkBox}
                 selectedValues={selectedBrands}
               />
             )}
@@ -131,7 +134,7 @@ const Dashboard = () => {
                 values={categories}
                 filterType={filterType.CATEGORY}
                 filterHandler={handleProductsFilter}
-                groupType={"checkbox"}
+                group={groupType.checkBox}
                 selectedValues={selectedCategories}
               />
             )}

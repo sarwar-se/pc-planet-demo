@@ -15,7 +15,7 @@ const TopBar = ({ activeView, onChangeView, sortProducts }) => {
             onChangeView(productView.card);
           }}
         >
-          <img className="view-icon" src={grid_icon} />
+          <img className="view-icon" src={grid_icon} alt="grid icon" />
         </button>
 
         <button
@@ -27,7 +27,7 @@ const TopBar = ({ activeView, onChangeView, sortProducts }) => {
             onChangeView(productView.list);
           }}
         >
-          <img className="view-icon" src={list_icon} />
+          <img className="view-icon" src={list_icon} alt="list icon" />
         </button>
       </div>
 

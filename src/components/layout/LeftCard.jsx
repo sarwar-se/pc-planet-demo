@@ -6,7 +6,7 @@ const LeftCard = ({
   values,
   filterType,
   filterHandler,
-  groupType,
+  group,
   selectedValues,
 }) => {
   const [expanded, setExpanded] = useState(true);
@@ -33,7 +33,7 @@ const LeftCard = ({
             values={values}
             filterType={filterType}
             filterHandler={filterHandler}
-            groupType={groupType}
+            group={group}
             selectedValues={selectedValues}
           />
         </div>

@@ -1,3 +1,4 @@
+import { mockData } from "./mockData";
 import { apiRoutes } from "./productApiRoutes";
 import { mockApi } from "./productMockApi";
 
@@ -20,4 +21,18 @@ export const deleteProduct = () => {
 
 export const addProduct = () => {
   return callApi("post");
+};
+
+export const searchProduct = (query) => {
+  return new Promise((resolve, reject) => {
+    if (!query) {
+      resolve({ data: [] });
+    } else {
+      const filteredData = mockData.filter((product) =>
+        product.title.toLowerCase().includes(query.toLowerCase())
+      );
+      resolve({ data: filteredData });
+    }
+    reject({ error: false });
+  });
 };

@@ -51,6 +51,11 @@
   padding: 2px 7px 2px 7px;
   font-size: 15px;
 }
+.login-register {
+  margin: 0;
+  font-size: 15px;
+  color: gray;
+}
 /* header ENDS */
 
 /* navigation bar */
@@ -175,7 +180,8 @@
   padding: 0px;
 }
 .add-icon-size {
-  width: 1.2rem;
+  width: 1rem;
+  padding-bottom: 2px;
 }
 
 .logo-size {

@@ -26,7 +26,7 @@ export const deleteProduct = () => {
 export const addProduct = () => {
   return new Promise((resolve, reject) => {
     resolve({ success: true });
-    reject({ error: false });
+    reject({ error: true });
   });
 };
 
@@ -38,7 +38,9 @@ export const mockApi = (method) => {
       return updateProduct();
     case "delete":
       return deleteProduct();
-      case "post":
+    case "post":
       return addProduct();
+    default:
+      return;
   }
 };
