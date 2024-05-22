@@ -44,6 +44,11 @@ export const productStatus = {
   preOrder: "Pre Order",
 };
 
+export const groupType = {
+  radio: "radio",
+  checkBox: "checkbox",
+};
+
 export const numberFormat = (number) => {
   return Intl.NumberFormat().format(number);
 };

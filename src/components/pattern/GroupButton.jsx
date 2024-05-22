@@ -1,10 +1,11 @@
 import { Form } from "react-bootstrap";
+import { groupType } from "../../constants/appConstant";
 
 const GroupButton = ({
   values,
   filterType,
   filterHandler,
-  groupType,
+  group,
   selectedValues,
 }) => {
   return (
@@ -12,13 +13,13 @@ const GroupButton = ({
       {values &&
         values.map((item, i) => (
           <Form.Check
-          className="check-box"
+            className="check-box"
             key={i}
             label={item}
-            type={groupType}
+            type={group}
             name={item}
             checked={
-              groupType === "checkbox"
+              group === groupType.checkBox
                 ? selectedValues.includes(item)
                 : selectedValues === item
             }
