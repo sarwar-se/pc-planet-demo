@@ -36,3 +36,14 @@ export const searchProduct = (query) => {
     reject({ error: false });
   });
 };
+
+export const getProductsByCategory = (category) => {
+  return new Promise((resolve, reject) => {
+    const filteredData = mockData.filter(
+      (product) => product.type.toLowerCase() === category
+    );
+    resolve({ data: filteredData });
+
+    reject({ error: false });
+  });
+};

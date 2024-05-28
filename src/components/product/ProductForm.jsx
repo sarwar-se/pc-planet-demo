@@ -92,12 +92,18 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
 
   return (
     <div className="">
-      <Form
-        className="d-flex flex-column gap-4"
-        // onSubmit={() => handleFormSubmit}
-      >
-        <Row className="">
-          <Form.Group as={Col} sm={6}>
+      <Form className="d-flex flex-column gap-4">
+        <Row className="gap-4">
+          <Form.Group as={Col}>
+            <Form.Label className="fw-bold">Product Code:</Form.Label>
+            <Form.Control
+              type="number"
+              name="id"
+              value={formData.id}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group as={Col}>
             <Form.Label className="fw-bold">Product Name:</Form.Label>
             <Form.Control
               type="text"
@@ -106,7 +112,9 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
               onChange={handleChange}
             />
           </Form.Group>
+        </Row>
 
+        <Row className="gap-4">
           <Form.Group as={Col}>
             <Form.Label className="fw-bold">Brand:</Form.Label>
             <Form.Select
@@ -125,7 +133,6 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
               <option value={"POWER GUARD"}>POWER GUARD</option>
             </Form.Select>
           </Form.Group>
-
           <Form.Group as={Col}>
             <Form.Label className="fw-bold">Category:</Form.Label>
             <Form.Select
@@ -145,16 +152,7 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
           </Form.Group>
         </Row>
 
-        <Row>
-          <Form.Group as={Col}>
-            <Form.Label className="fw-bold">Product ID:</Form.Label>
-            <Form.Control
-              type="number"
-              name="id"
-              value={formData.id}
-              onChange={handleChange}
-            />
-          </Form.Group>
+        <Row className="gap-4">
           <Form.Group as={Col}>
             <Form.Label className="fw-bold">Product Price:</Form.Label>
             <Form.Control
@@ -164,7 +162,6 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
               onChange={handleChange}
             />
           </Form.Group>
-
           <Form.Group as={Col}>
             <Form.Label className="fw-bold">Status:</Form.Label>
             <Form.Select
@@ -179,48 +176,14 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
             </Form.Select>
           </Form.Group>
         </Row>
-        <Row>
-          <div className="d-flex gap-3 align-items-center">
-            <Form.Group>
-              <Form.Label className="fw-bold">Choose Image (Max 3):</Form.Label>
-              <Form.Control
-                type="file"
-                name="images"
-                onChange={handleFileChange}
-                multiple
-                ref={fileInputRef}
-              />
-            </Form.Group>
-            <div className="d-flex gap-3">
-              {imgPreviews.map((preview, index) => (
-                <div key={index} className="d-flex flex-column gap-1">
-                  <img
-                    src={preview.preview}
-                    className="preview-img"
-                    alt={`Img Preview ${index}`}
-                  />
-                  <div className="d-flex align-items-center gap-2">
-                    <p className="file-name">{preview.file.name}</p>
-                    <button
-                      className="cross-button"
-                      onClick={() => removeImage(index)}
-                    >
-                      {"X"}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Row>
 
-        <Row>
+        <Row className="gap-4">
           <Form.Group as={Col}>
             <Form.Label className="fw-bold">Description 1:</Form.Label>
             <Form.Control
               type="text"
               name="description.one"
-              value={formData.description.one}
+              value={formData.description?.one || ""}
               onChange={handleChange}
             />
           </Form.Group>
@@ -229,16 +192,19 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
             <Form.Control
               type="text"
               name="description.two"
-              value={formData.description.two}
+              value={formData.description?.two || ""}
               onChange={handleChange}
             />
           </Form.Group>
+        </Row>
+
+        <Row className="gap-4">
           <Form.Group as={Col}>
             <Form.Label className="fw-bold">Description 3:</Form.Label>
             <Form.Control
               type="text"
               name="description.three"
-              value={formData.description.three}
+              value={formData.description?.three || ""}
               onChange={handleChange}
             />
           </Form.Group>
@@ -247,14 +213,62 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
             <Form.Control
               type="text"
               name="description.four"
-              value={formData.description.four}
+              value={formData.description?.four || ""}
               onChange={handleChange}
             />
           </Form.Group>
         </Row>
 
+        <Row>
+          <div className="d-flex gap-3 align-items-center">
+            <div>
+              <Form.Group>
+                <Form.Label className="fw-bold">
+                  Choose Image (Max 3):
+                </Form.Label>
+                <Form.Control
+                  type="file"
+                  name="imgName"
+                  onChange={handleFileChange}
+                  multiple
+                  ref={fileInputRef}
+                />
+              </Form.Group>
+              <div>
+                {imgPreviews.map((preview, index) => (
+                  <div key={index} className="d-flex flex-column gap-1">
+                    <div className="d-flex align-items-center gap-2">
+                      <p className="file-name">{preview.file.name}</p>
+                      <button
+                        className="cross-button"
+                        onClick={() => removeImage(index)}
+                      >
+                        {"X"}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="d-flex gap-3">
+              {imgPreviews.map((preview, index) => (
+                <div key={index} className="d-flex flex-column gap-1">
+                  <img
+                    src={preview.preview}
+                    className="preview-img"
+                    alt={`Img Preview ${index}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </Row>
+
         <Form.Group className="d-flex justify-content-end gap-2 mt-2">
-          <Button onClick={() => handleSubmit(formData)}>Add</Button>
+          <Button onClick={() => handleSubmit(formData, handleClear)}>
+            Add
+          </Button>
           <Button variant="secondary" onClick={handleClear}>
             Clear
           </Button>

@@ -3,8 +3,10 @@ import ProductForm from "../components/product/ProductForm";
 import AppToast from "../components/pattern/AppToast";
 import { colorVarient, toastPosition } from "../constants/appConstant";
 import { addProduct } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
+  const navigate = useNavigate();
   const [showToaster, setShowToaster] = useState(false);
   const [toastHeader, setToastHeader] = useState("");
   const [toastMessage, setToastMessage] = useState("");
@@ -26,8 +28,7 @@ const AddProduct = () => {
     images: [],
   });
 
-  const handleAddProduct = (product) => {
-
+  const handleAddProduct = (product, handleClear) => {
     console.log(product);
     addProduct(product)
       .then((response) => {
@@ -36,6 +37,7 @@ const AddProduct = () => {
           setToastMessage("Product Added Successfully");
           setToastColorVarient(colorVarient.SUCCESS);
           setShowToaster(true);
+          handleClear();
         }
       })
       .catch(() => {
@@ -48,8 +50,11 @@ const AddProduct = () => {
   };
 
   return (
-    <>
-      <div className="container bg-white mt-3 p-3 border">
+    <div className="container">
+      <button className="btn btn-secondary my-3" onClick={() => navigate(-1)}>
+        {"Back"}
+      </button>
+      <div className=" bg-white px-5 py-3 border">
         <div className="text-center mb-3">
           <h4 className="fw-bold text-success">Add Product</h4>
         </div>
@@ -68,7 +73,7 @@ const AddProduct = () => {
         position={toastPosition.bottomEnd}
         colorVarient={toastColorVarient}
       />
-    </>
+    </div>
   );
 };
 

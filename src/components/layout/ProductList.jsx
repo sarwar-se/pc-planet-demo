@@ -14,8 +14,9 @@ import { Loader } from "../pattern/Loader";
 import { add_icon_white } from "../../assets/index";
 import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../../constants/appRoutes";
+import { STATUS } from "../../constants/fetchStatus";
 
-const ProductList = ({ products, loadProducts, isLoading }) => {
+const ProductList = ({ products, loadProducts, status }) => {
   const navigate = useNavigate();
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showToaster, setShowToaster] = useState(false);
@@ -171,9 +172,8 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
   return (
     <>
       <div>
-        {isLoading ? (
-          <Loader />
-        ) : (
+        {status === STATUS.LOADING && <Loader />}
+        {status === STATUS.SUCCESS && (
           <>
             <div className="text-end mb-2">
               <AppButton btnClass="bg-success" handleClick={addProductNavigate}>
@@ -196,13 +196,14 @@ const ProductList = ({ products, loadProducts, isLoading }) => {
         handleCancel={updateModalClose}
         showTitle={false}
         showHeader={true}
-        showFooter={true}
+        showFooter={false}
         headerTitle={"Update Product"}
         acceptText={"Submit"}
         cancelText={"Cancel"}
         animation={true}
         backdrop={"static"}
         centered={true}
+        closeButton={true}
         size={"xl"}
       >
         <ProductForm

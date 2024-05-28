@@ -6,8 +6,11 @@ import {
   shopping_cart_yellow,
 } from "../../assets/index";
 import SearchProduct from "../product/SearchProduct";
+import { useNavigate } from "react-router-dom";
+import { appRoutes } from "../../constants/appRoutes";
 
 const Header = () => {
+  const navigate = useNavigate();
   const cartCount = 0;
   return (
     <Navbar
@@ -17,11 +20,14 @@ const Header = () => {
       expand="lg"
     >
       <Container className="d-flex flex-lg-row flex-md-row flex-sm-column flex-column gap-2">
-        <Nav className="d-flex gap-2">
+        <Nav
+          className="d-flex gap-2 pointer"
+          onClick={() => {
+            navigate(appRoutes.root);
+          }}
+        >
           <Image className="logo-size" src={pc_planet_logo} />
-          <Navbar.Brand className="text-light fw-bold" href="#">
-            PC Planet
-          </Navbar.Brand>
+          <Navbar.Brand className="text-light fw-bold">PC Planet</Navbar.Brand>
         </Nav>
         <Col className="d-flex justify-content-center">
           <SearchProduct />

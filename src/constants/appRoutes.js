@@ -1,5 +1,6 @@
 export const appRoutes = {
   root: "/",
-  dashboard: "dashboard",
+  dashboard: "/dashboard",
   addProduct: "/add-product",
+  category: (category) => `/${category}`,
 };

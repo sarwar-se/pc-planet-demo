@@ -1,7 +1,7 @@
 export const mockData = [
   {
     id: 1,
-        title: "Asus ROG Strix GeForce RTX 3080 10GB GDDR6X Graphics Card",
+    title: "Asus ROG Strix GeForce RTX 3080 10GB GDDR6X Graphics Card",
     description: {
       one: "2nd Generation RT Cores, 3rd Generation Tensor Cores",
       two: "Axial-tech Fan Design, 2.9-slot design",
@@ -9,8 +9,8 @@ export const mockData = [
       four: "PCI Express 4.0, OpenGL 4.6, CUDA Core: 8704",
     },
     price: 156000,
-       brand: "ASUS",
-       type: "Graphics Card",
+    brand: "ASUS",
+    type: "Graphics Card",
     status: "In Stock",
     imgName: "rog-strix-geforce-rtx-3080.jpg",
   },
