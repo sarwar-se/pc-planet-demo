@@ -20,6 +20,13 @@ export const router = createBrowserRouter([
           return { Component: AddProduct };
         },
       },
+      {
+        path: ":category",
+        lazy: async () => {
+          const { FindCategoryWise } = await import("./pages/index.js");
+          return { Component: FindCategoryWise };
+        },
+      },
     ],
   },
   {

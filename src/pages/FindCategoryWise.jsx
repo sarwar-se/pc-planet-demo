@@ -1,40 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../api/api";
+import { getProductsByCategory } from "../api/api";
 import ProductView from "../components/product/ProductView";
-import { STATUS } from "../constants/fetchStatus";
+import { useParams } from "react-router-dom";
 
-const Dashboard = () => {
+const FindCategoryWise = () => {
+  const { category } = useParams();
   const [products, setProducts] = useState([]);
   const [defaultProducts, setDefaultProducts] = useState([]);
-  const [fetchStatus, setFetchStatus] = useState(STATUS.IDLE);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchProducts = () => {
-    setFetchStatus(STATUS.LOADING);
-    getProducts()
+  const fetchProducts = (category) => {
+    setIsLoading(true);
+    getProductsByCategory(category)
       .then((response) => {
         setProducts(response.data);
         setDefaultProducts(response.data);
-        setFetchStatus(STATUS.SUCCESS);
       })
-      .catch(() => {
-        setFetchStatus(STATUS.ERROR);
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    fetchProducts(category);
+  }, [category]);
   return (
     <>
       <ProductView
         products={products}
         setProducts={setProducts}
         defaultProducts={defaultProducts}
-        status={fetchStatus}
+        isLoading={isLoading}
         loadProducts={fetchProducts}
       />
     </>
   );
 };
 
-export default Dashboard;
+export default FindCategoryWise;
