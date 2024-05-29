@@ -3,10 +3,8 @@ import ProductForm from "../components/product/ProductForm";
 import AppToast from "../components/pattern/AppToast";
 import { colorVarient, toastPosition } from "../constants/appConstant";
 import { addProduct } from "../api/api";
-import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
-  const navigate = useNavigate();
   const [showToaster, setShowToaster] = useState(false);
   const [toastHeader, setToastHeader] = useState("");
   const [toastMessage, setToastMessage] = useState("");
@@ -50,10 +48,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="container">
-      <button className="btn btn-secondary my-3" onClick={() => navigate(-1)}>
-        {"Back"}
-      </button>
+    <div className="container mt-2">
       <div className=" bg-white px-5 py-3 border">
         <div className="text-center mb-3">
           <h4 className="fw-bold text-success">Add Product</h4>

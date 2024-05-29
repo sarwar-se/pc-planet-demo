@@ -1,10 +1,10 @@
 import { Col, Container, Image, Nav, Navbar } from "react-bootstrap";
 import {
-  pc_planet_logo,
+  offer_icon,
   user_icon_yellow,
-  discount_off_icon,
   shopping_cart_yellow,
 } from "../../assets/index";
+import computer_planet from "../../assets/logo/computer_planet.png";
 import SearchProduct from "../product/SearchProduct";
 import { useNavigate } from "react-router-dom";
 import { appRoutes } from "../../constants/appRoutes";
@@ -26,8 +26,8 @@ const Header = () => {
             navigate(appRoutes.root);
           }}
         >
-          <Image className="logo-size" src={pc_planet_logo} />
-          <Navbar.Brand className="text-light fw-bold">PC Planet</Navbar.Brand>
+          <Image className="logo-size" src={computer_planet} />
+          {/* <Navbar.Brand className="text-light fw-bold">PC Planet</Navbar.Brand> */}
         </Nav>
         <Col className="d-flex justify-content-center">
           <SearchProduct />
@@ -37,11 +37,7 @@ const Header = () => {
           <Nav.Link href="#">
             <div className="d-flex flex-row align-items-center gap-2">
               <div>
-                <img
-                  style={{ width: 35 }}
-                  src={discount_off_icon}
-                  alt="offer icon"
-                />
+                <img style={{ width: 35 }} src={offer_icon} alt="offer icon" />
               </div>
               <div>
                 <p className="text-light m-0">Offers</p>
