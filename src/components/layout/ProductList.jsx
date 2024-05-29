@@ -206,11 +206,13 @@ const ProductList = ({ products, loadProducts, status }) => {
         closeButton={true}
         size={"xl"}
       >
-        <ProductForm
-          formData={product}
-          setFormData={setProduct}
-          handleSubmit={handleEditProduct}
-        />
+        <div className="px-4">
+          <ProductForm
+            formData={product}
+            setFormData={setProduct}
+            handleSubmit={handleEditProduct}
+          />
+        </div>
       </AppModal>
 
       <AppModal
